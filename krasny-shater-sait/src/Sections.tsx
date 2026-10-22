@@ -79,6 +79,12 @@ export function Host() {
               Ведущая Красного Шатра, мама четверых. Я тоже там была: в усталости, в стыде, в потере себя. Поэтому умею держать огонь, пока другая женщина вспоминает себя.
             </p>
           </div>
+          <img
+            src={img('semya')}
+            alt="Анастасия с четырьмя детьми в красном платье"
+            loading="lazy"
+            style={{ display: 'block', width: 'min(100%, 340px)', aspectRatio: '4 / 5', objectFit: 'cover', objectPosition: '50% 70%', borderRadius: 24 }}
+          />
         </div>
       </div>
     </section>
@@ -127,6 +133,10 @@ export function Signup() {
       <div className="inner" style={{ position: 'relative' }}>
         <p className="eyebrow">Запись</p>
         <h3 className="big" style={{ maxWidth: '14ch' }}>Для тебя есть место в нашем круге</h3>
+        <span className="label" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 16px', borderRadius: 999, border: '1px solid rgba(255,255,255,0.4)' }}>
+          <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff' }} />
+          Осталось 5 мест
+        </span>
         <div className="glass" style={{ display: 'flex', flexWrap: 'wrap', borderRadius: 28, margin: '36px 0', maxWidth: 860 }}>
           {cells.map(([k, v, s], i) => (
             <div key={k} style={{ flex: '1 1 220px', padding: '24px 28px', borderLeft: i ? '1px solid rgba(255,255,255,0.18)' : undefined }}>

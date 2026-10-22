@@ -49,7 +49,7 @@ export default function Footer() {
               <span className="display" style={{ fontSize: 24 }}>Красный Шатёр</span>
             </div>
             <p style={{ margin: '14px 0 0', fontSize: 15, lineHeight: '24px', color: 'rgba(255,255,255,0.6)', maxWidth: 320 }}>
-              Ты не сломалась. Ты слишком долго держалась одна. В шатре мы не чиним женщин, мы возвращаем им право быть живыми.
+              В шатре мы не чиним женщин, мы возвращаем им право быть живыми.
             </p>
           </div>
           {COLUMNS.map((col) => (

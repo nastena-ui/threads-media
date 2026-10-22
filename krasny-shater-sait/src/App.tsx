@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode }
 import { useScroll, useMotionValueEvent } from 'motion/react'
 import { SCROLL_VH, P, G, BG_SEAM_1, BG_SEAM_2, span, ramp, lerp } from './scroll'
 import { CARDS, NAV, SIGNUP, img } from './content'
+import { useIntro } from './intro'
 import { Faq, Gallery, Host, Program, Signup } from './Sections'
 import Footer from './Footer'
 import Mobile from './Mobile'
@@ -103,7 +104,9 @@ function Scene() {
     transform: `scale(${drift})`,
   })
 
-  const num = (n: number) => Math.round(n * span(p, P.stat))
+  /* timed intro so the hero words are in on load, before any scrolling */
+  const pa = Math.max(p, useIntro(0.12))
+  const num = (n: number) => Math.round(n * span(pa, P.stat))
 
   return (
     <div ref={wrap} id="o-shatre" style={{ height: `${SCROLL_VH}vh`, background: '#111111' }}>
@@ -213,7 +216,7 @@ function Scene() {
             {['Красный', 'Шатёр', 'в Видном'].map((w, i) => (
               <Mask
                 key={w}
-                t={span(p, [P.word, P.word2, P.word3][i])}
+                t={span(pa, [P.word, P.word2, P.word3][i])}
                 style={{ position: 'absolute', left: 0, top: px(i === 0 ? -8 : i === 1 ? 54 : 116), width: px(640), height: px(94) }}
               >
                 <div className="display" style={{ fontSize: px(i === 2 ? 56 : 80), lineHeight: px(86), fontStyle: i === 2 ? 'italic' : undefined, fontWeight: i === 2 ? 500 : 600, paddingTop: i === 2 ? 8 : 0 }}>
@@ -228,14 +231,14 @@ function Scene() {
             ].map((line, i) => (
               <Mask
                 key={line}
-                t={span(p, [P.body1, P.body2, P.body3][i])}
+                t={span(pa, [P.body1, P.body2, P.body3][i])}
                 style={{ position: 'absolute', left: 0, top: px(264 + i * 26), width: px(520), height: px(32) }}
               >
                 <div style={{ fontSize: px(17), lineHeight: px(24), color: 'rgba(255,255,255,0.86)' }}>{line}</div>
               </Mask>
             ))}
 
-            <div style={{ position: 'absolute', left: 0, top: px(400), opacity: span(p, P.body3), display: 'flex', gap: px(14) }}>
+            <div style={{ position: 'absolute', left: 0, top: px(400), opacity: span(pa, P.body3), display: 'flex', gap: px(14) }}>
               <a className="label btn btn-white" href={SIGNUP} target="_blank" rel="noopener" style={{ height: px(48), padding: `0 ${px(28)}`, fontSize: 12 }}>
                 Хочу в круг
               </a>
@@ -249,7 +252,7 @@ function Scene() {
               className="glass"
               style={{
                 position: 'absolute', left: px(GROUP_W - 459), top: px(300), width: px(459), height: px(289),
-                borderRadius: px(60), opacity: span(p, P.stat), transform: `translateY(${(1 - span(p, P.stat)) * 28}px)`,
+                borderRadius: px(60), opacity: span(pa, P.stat), transform: `translateY(${(1 - span(pa, P.stat)) * 28}px)`,
               }}
             >
               <div style={{ position: 'absolute', inset: `${px(36)} ${px(40)}` }}>
@@ -265,7 +268,7 @@ function Scene() {
                   </div>
                 </div>
                 <div style={{ position: 'absolute', left: 0, right: 0, top: px(92), height: px(3), borderRadius: 999, background: 'rgba(255,255,255,0.16)', overflow: 'hidden' }}>
-                  <div style={{ width: `${100 * span(p, P.stat)}%`, height: '100%', borderRadius: 999, background: RED, boxShadow: `0 0 14px ${RED}` }} />
+                  <div style={{ width: `${100 * span(pa, P.stat)}%`, height: '100%', borderRadius: 999, background: RED, boxShadow: `0 0 14px ${RED}` }} />
                 </div>
                 <div className="label" style={{ position: 'absolute', left: 0, top: px(108), fontSize: px(10), color: 'rgba(255,255,255,0.6)' }}>
                   Видное, деревня Сапроново
@@ -275,11 +278,10 @@ function Scene() {
                   {[
                     ['часов вместе', 5],
                     ['практик', 5],
-                    ['женщин в круге', 8],
+                    ['мест осталось', 5],
                   ].map(([k, v], i) => (
                     <div key={k as string} style={{ flex: 1, paddingLeft: i ? px(20) : 0, borderLeft: i ? '1px solid rgba(255,255,255,0.14)' : undefined }}>
                       <div className="display" style={{ fontSize: px(34), fontWeight: 500 }}>
-                        {i === 2 ? '~' : ''}
                         {num(v as number)}
                       </div>
                       <div className="label" style={{ marginTop: px(5), fontSize: px(9.5), color: 'rgba(255,255,255,0.6)' }}>
@@ -324,14 +326,14 @@ function Scene() {
 
           {/* ================= GROUP 55: not broken ================= */}
           <div style={{ ...box(SAFE_L, 0, GROUP_W, 810), transform: `translateY(${y55}px)`, willChange: 'transform' }}>
-            <div className="display" style={{ position: 'absolute', left: 0, top: px(430), width: px(800), fontSize: px(50), lineHeight: px(56) }}>
-              Ты не сломалась.
+            <div className="display" style={{ position: 'absolute', left: 0, top: px(430), width: px(800), fontSize: px(56), lineHeight: px(60) }}>
+              Мы не будем тебя чинить.
               <br />
-              Ты слишком долго держалась одна.
+              Мы будем тебя слышать.
             </div>
             <div style={{ position: 'absolute', left: 0, top: px(404), width: px(56), height: px(3), background: RED }} />
             <div style={{ position: 'absolute', left: px(GROUP_W - 400), top: px(434), width: px(400), fontSize: px(16), lineHeight: px(27), color: 'rgba(255,255,255,0.84)' }}>
-              В шатре не будет оценок, суждений, советов и спасательств. Каждая проживает свой уникальный путь и знает, как нужно именно ей. Мы не будем тебя чинить. Мы будем тебя слышать.
+              В шатре не будет оценок, суждений, советов и спасательств. Каждая проживает свой уникальный путь и знает, как нужно именно ей. 
             </div>
           </div>
         </div>
