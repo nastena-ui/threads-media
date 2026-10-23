@@ -120,8 +120,7 @@ export function Faq() {
     <section id="faq" className="sec" style={{ background: '#111111' }}>
       <div className="inner" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'clamp(32px, 6vw, 88px)' }}>
         <div>
-          <p className="eyebrow">Вопросы</p>
-          <h3 className="big">Если немного тревожно</h3>
+          <h3 className="big">Вопросы</h3>
         </div>
         <div>
           {FAQ.map((f) => (
