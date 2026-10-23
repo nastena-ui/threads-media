@@ -125,15 +125,17 @@ function Scene() {
         <img src={img('krug')} alt="" aria-hidden="true" style={layer(mix1, '50% 50%')} />
         <img src={img('svecha')} alt="" aria-hidden="true" style={layer(mix2, '50% 62%')} />
 
+        <Vpn />
+
         {/* ---- viewport-level chrome ---- */}
         <div
           style={{
             position: 'absolute',
             inset: '0 0 auto 0',
-            height: 132,
+            height: 150,
             display: 'flex',
             alignItems: 'flex-start',
-            paddingTop: 32,
+            paddingTop: 50,
             paddingLeft: 40,
             paddingRight: 40,
             gap: 40,
@@ -246,10 +248,6 @@ function Scene() {
               <a className="label btn btn-ghost" href="#program" style={{ height: px(48), padding: `0 ${px(26)}`, fontSize: 12 }}>
                 Как пройдёт день
               </a>
-            </div>
-
-            <div style={{ position: 'absolute', left: 0, top: px(470), opacity: span(pa, P.body3) }}>
-              <Vpn />
             </div>
 
             {/* the event card */}
