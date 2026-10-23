@@ -3,7 +3,8 @@ import { useScroll, useMotionValueEvent } from 'motion/react'
 import { SCROLL_VH, P, G, BG_SEAM_1, BG_SEAM_2, span, ramp, lerp } from './scroll'
 import { CARDS, NAV, SIGNUP, img } from './content'
 import { useIntro } from './intro'
-import { Faq, Gallery, Host, Program, Signup } from './Sections'
+import { Faq, Gallery, Host, Principles, Program, Signup } from './Sections'
+import Vpn from './Vpn'
 import Footer from './Footer'
 import Mobile from './Mobile'
 
@@ -247,6 +248,10 @@ function Scene() {
               </a>
             </div>
 
+            <div style={{ position: 'absolute', left: 0, top: px(470), opacity: span(pa, P.body3) }}>
+              <Vpn />
+            </div>
+
             {/* the event card */}
             <div
               className="glass"
@@ -348,6 +353,7 @@ export default function App() {
     <>
       {narrow ? <Mobile /> : <Scene />}
       <Program />
+      <Principles />
       <Gallery />
       <Host />
       <Faq />
