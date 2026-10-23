@@ -3,6 +3,7 @@ import { useScroll, useMotionValueEvent } from 'motion/react'
 import { CARDS, SIGNUP, img } from './content'
 import { BG_SEAM_1, BG_SEAM_2, ramp, span } from './scroll'
 import { useIntro } from './intro'
+import Vpn from './Vpn'
 
 /*
 Phone version of the scene. Same idea as the desktop artboard (one pinned
@@ -88,7 +89,10 @@ export default function Mobile() {
             <a className="btn btn-white" href={SIGNUP} target="_blank" rel="noopener">Хочу в круг · 3 500 ₽</a>
             <a className="btn btn-ghost" href="#program">Как пройдёт день</a>
           </div>
-          <div className="label" style={{ marginTop: 22, color: 'rgba(255,255,255,0.78)', opacity: span(pa, [0.08, 0.1]) }}>Осталось 5 мест</div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 12, marginTop: 22, opacity: span(pa, [0.08, 0.1]) }}>
+            <span className="label" style={{ color: 'rgba(255,255,255,0.78)' }}>Осталось 5 мест</span>
+            <Vpn />
+          </div>
         </div>
 
         {/* stage B: practices */}

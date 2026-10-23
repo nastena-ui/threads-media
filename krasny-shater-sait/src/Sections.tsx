@@ -1,4 +1,4 @@
-import { CHANNEL, FAQ, GALLERY, PRACTICES, SIGNUP, img } from './content'
+import { CHANNEL, FAQ, GALLERY, PRACTICES, PRINCIPLES, SIGNUP, img } from './content'
 
 /*
 Ordinary flow sections that follow the pinned scene. Unlike the scene these
@@ -20,6 +20,31 @@ export function Program() {
           {PRACTICES.map((p, i) => (
             <div className="practice" key={p.t}>
               <span className="n">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <h4>{p.t}</h4>
+                <p>{p.d}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export function Principles() {
+  return (
+    <section id="principles" className="sec" style={{ background: '#004b3c' }}>
+      <div className="inner" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'clamp(32px, 6vw, 88px)' }}>
+        <div>
+          <p className="eyebrow">Принципы шатра</p>
+          <h3 className="big">Как мы держим круг</h3>
+          <p className="lead">Главные принципы женских встреч в традиции Красного шатра.</p>
+        </div>
+        <div>
+          {PRINCIPLES.map((p, i) => (
+            <div className="practice principle" key={p.t}>
+              <span className="n">{i + 1}</span>
               <div>
                 <h4>{p.t}</h4>
                 <p>{p.d}</p>
