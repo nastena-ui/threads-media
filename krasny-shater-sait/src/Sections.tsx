@@ -37,8 +37,7 @@ export function Principles() {
     <section id="principles" className="sec" style={{ background: '#004b3c' }}>
       <div className="inner" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'clamp(32px, 6vw, 88px)' }}>
         <div>
-          <p className="eyebrow">Принципы шатра</p>
-          <h3 className="big">Как мы держим круг</h3>
+          <h3 className="big">Принципы шатра</h3>
           <p className="lead">Главные принципы женских встреч в традиции Красного шатра.</p>
         </div>
         <div>

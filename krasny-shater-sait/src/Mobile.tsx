@@ -61,7 +61,9 @@ export default function Mobile() {
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(0deg, rgba(10,6,6,0.94) 0%, rgba(10,6,6,0.62) 48%, rgba(10,6,6,0.1) 100%)', opacity: outA }} />
         <div style={{ position: 'absolute', inset: 0, background: 'rgba(10,6,6,0.8)', opacity: Math.max(0, 1 - outA) }} />
 
-        <header style={{ position: 'absolute', inset: '0 0 auto 0', zIndex: 5, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 20px', background: 'linear-gradient(180deg, rgba(8,8,8,0.8), rgba(8,8,8,0))' }}>
+        <Vpn compact />
+
+        <header style={{ position: 'absolute', inset: '0 0 auto 0', zIndex: 5, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '44px 20px 16px', background: 'linear-gradient(180deg, rgba(8,8,8,0.8), rgba(8,8,8,0))' }}>
           <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <svg width="22" height="22" viewBox="0 0 28 28" aria-hidden="true"><path d="M14 3 25 25H3z" fill={RED} /></svg>
             <span className="display" style={{ fontSize: 20 }}>Красный Шатёр</span>
@@ -91,7 +93,6 @@ export default function Mobile() {
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 12, marginTop: 22, opacity: span(pa, [0.08, 0.1]) }}>
             <span className="label" style={{ color: 'rgba(255,255,255,0.78)' }}>Осталось 5 мест</span>
-            <Vpn />
           </div>
         </div>
 
